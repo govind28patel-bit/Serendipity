@@ -1,0 +1,450 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Serendipity Case Study · Govind Patel</title>
+<meta name="description" content="Serendipity: a website design for three colonial bungalows in The Nilgiris, by Govind Patel.">
+<meta property="og:title" content="Serendipity · Website design case study">
+<meta property="og:image" content="cover.jpg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Jost:wght@300;400;500&family=Pinyon+Script&display=swap">
+<style>
+:root{
+  --paper:#f6eee0; --paper2:#fbf6ec; --linen:#ece2cf; --ink:#2b2620; --mute:#6d6352; --brass:#9e845c; --sand:#d1b991; --olive:#665b3d; --green:#34522b;
+  --line:rgba(43,38,32,.14); --serif:"Cormorant Garamond", Georgia, "Times New Roman", serif; --sans:"Jost", "Segoe UI", system-ui, sans-serif; --script:"Pinyon Script", "Brush Script MT", cursive;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0; background:var(--paper); color:var(--ink); font:300 17px/1.65 var(--sans); overflow-x:clip; -webkit-font-smoothing:antialiased}
+body::before{content:""; position:fixed; inset:0; pointer-events:none; z-index:0; opacity:.35; mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 .55 0 0 0 0 .47 0 0 0 0 .34 0 0 0 .22 0'/%3E%3C/filter%3E%3Crect width='220' height='220' filter='url(%23n)'/%3E%3C/svg%3E")}
+img{max-width:100%; display:block}
+a{color:inherit}
+.wrap{position:relative; z-index:1; max-width:1240px; margin:0 auto; padding-left:max(20px, env(safe-area-inset-left,0px)); padding-right:max(20px, env(safe-area-inset-right,0px))}
+.sc{font-family:var(--serif); font-variant:small-caps; letter-spacing:.06em}
+.eyebrow{font:500 .74rem/1 var(--sans); letter-spacing:.32em; text-transform:uppercase; color:var(--brass)}
+h1,h2,h3{font-family:var(--serif); font-weight:600; margin:0; text-wrap:balance; color:var(--ink)}
+h2{font-size:clamp(2.3rem,5vw,4.2rem); line-height:1.02; font-variant:small-caps; letter-spacing:.02em}
+p{margin:0}
+.lede{font-size:clamp(1.05rem,1.6vw,1.25rem); color:var(--mute); max-width:60ch}
+section{position:relative}
+
+/* nav */
+.nav{position:absolute; top:0; left:0; right:0; z-index:5; padding-top:calc(22px + env(safe-area-inset-top,0px))}
+.nav .wrap{display:flex; justify-content:space-between; align-items:center; gap:16px}
+.mark{font:2.1rem/1 var(--script); text-decoration:none; color:var(--green)}
+.back{font:500 .78rem/1 var(--sans); letter-spacing:.18em; text-transform:uppercase; text-decoration:none; border:1px solid var(--ink); padding:12px 18px; transition:background .25s, color .25s}
+.back:hover{background:var(--ink); color:var(--paper2)}
+
+/* hero */
+.hero{min-height:100svh; display:grid; align-items:center; padding-block:120px 70px; overflow:hidden}
+.hero .wrap{display:grid; grid-template-columns:minmax(0,.85fr) minmax(0,1.3fr); gap:56px; align-items:center}
+.hero h1{font-size:clamp(2.8rem,5.4vw,5rem); line-height:.95; font-variant:small-caps; letter-spacing:.01em}
+.hero h1 em{display:block; font:400 .62em/1.25 var(--script); font-variant:normal; color:var(--green); letter-spacing:0; margin-top:.12em}
+.hero .lede{margin-top:26px}
+.meta{display:flex; flex-wrap:wrap; gap:10px 26px; margin-top:30px; font-size:.85rem; color:var(--mute)}
+.meta b{display:block; font:500 .68rem/1.4 var(--sans); letter-spacing:.24em; text-transform:uppercase; color:var(--brass)}
+.cover{position:relative; border-radius:220px 220px 14px 14px; overflow:hidden; aspect-ratio:1488/870; box-shadow:0 40px 80px -40px rgba(60,45,20,.55), 0 0 0 1px var(--line); background:var(--linen)}
+.cover img{width:100%; height:100%; object-fit:cover; transform:scale(calc(1.05 - var(--hp,0) * .05)); transform-origin:70% 55%}
+.hills{position:absolute; left:0; right:0; bottom:0; height:120px; width:100%; z-index:0; color:var(--brass); opacity:.55}
+.hills path{fill:none; stroke:currentColor; stroke-width:1.2; stroke-dasharray:1; stroke-dashoffset:1; animation:draw 3.2s cubic-bezier(.6,0,.3,1) .4s forwards}
+.hills path:nth-child(2){animation-delay:.8s; opacity:.6}
+@keyframes draw{to{stroke-dashoffset:0}}
+.in-up{opacity:0; transform:translateY(24px); animation:up 1.1s cubic-bezier(.2,.8,.2,1) forwards; animation-delay:var(--d,0s)}
+@keyframes up{to{opacity:1; transform:none}}
+
+/* facts */
+.facts{border-block:1px solid var(--line); background:color-mix(in srgb, var(--paper2) 70%, transparent)}
+.facts .wrap{display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:0}
+.fact{padding:34px 10px; text-align:center; border-left:1px solid var(--line)}
+.fact:first-child{border-left:0}
+.fact b{display:block; font:600 clamp(2.6rem,5vw,4rem)/1 var(--serif); color:var(--olive); font-variant-numeric:lining-nums}
+.fact span{display:block; margin-top:8px; font-size:.82rem; letter-spacing:.14em; text-transform:uppercase; color:var(--mute)}
+
+/* brief */
+.brief{padding-block:130px 90px}
+.brief .wrap{display:grid; grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr); gap:60px}
+.brief h2 .w{display:inline-block; opacity:.14; transition:opacity .5s}
+.brief h2 .w.on{opacity:1}
+.jobs{list-style:none; margin:0; padding:0; display:grid; gap:0}
+.jobs li{display:grid; grid-template-columns:56px minmax(0,1fr); gap:16px; padding:22px 0; border-top:1px solid var(--line)}
+.jobs li:last-child{border-bottom:1px solid var(--line)}
+.jobs i{font:italic 500 1.6rem/1 var(--serif); color:var(--brass)}
+.jobs b{display:block; font:600 1.35rem/1.2 var(--serif); font-variant:small-caps; letter-spacing:.03em; margin-bottom:4px}
+.jobs p{color:var(--mute); font-size:.98rem}
+.note{margin-top:26px; font-size:.86rem; color:var(--mute); font-style:italic}
+
+/* pinned browser */
+.pin{height:520vh}
+.stick{position:sticky; top:0; height:100vh; height:100svh; display:flex; align-items:center; overflow:hidden}
+.pin .wrap{width:100%; display:grid; grid-template-columns:minmax(0,.75fr) minmax(0,1.25fr); gap:56px; align-items:center}
+.caps{position:relative}
+.caps h2{margin-bottom:26px; font-size:clamp(2rem,3.8vw,3.2rem)}
+.caps ol{list-style:none; margin:0; padding:0; display:grid; gap:2px}
+.caps li{display:grid; grid-template-columns:38px minmax(0,1fr); gap:8px; padding:10px 0; opacity:.38; transition:opacity .4s}
+.caps li.on{opacity:1}
+.caps li i{font:italic 500 1.1rem/1.4 var(--serif); color:var(--brass)}
+.caps li b{display:block; font:600 1.18rem/1.3 var(--serif); font-variant:small-caps; letter-spacing:.03em}
+.caps li p{max-height:0; overflow:hidden; color:var(--mute); font-size:.92rem; transition:max-height .5s ease}
+.caps li.on p{max-height:7em}
+.browser{position:relative; height:min(80vh, 760px); border-radius:14px; background:var(--paper2); box-shadow:0 50px 90px -50px rgba(60,45,20,.6), 0 0 0 1px var(--line); overflow:hidden; display:flex; flex-direction:column}
+.bar{flex:none; display:flex; align-items:center; gap:7px; padding:11px 14px; border-bottom:1px solid var(--line); background:var(--linen)}
+.bar i{width:10px; height:10px; border-radius:50%; background:#cbbfa6}
+.bar span{margin-left:12px; flex:1; font-size:.74rem; color:var(--mute); background:var(--paper2); border-radius:6px; padding:4px 10px; white-space:nowrap; overflow:hidden; text-overflow:ellipsis}
+.view{position:relative; flex:1; overflow:hidden}
+.view img{position:absolute; left:0; top:0; width:100%; will-change:transform}
+.prog{position:absolute; right:8px; top:56px; bottom:12px; width:3px; border-radius:2px; background:rgba(43,38,32,.08)}
+.prog i{display:block; width:100%; height:0; border-radius:2px; background:var(--brass)}
+
+/* sitemap */
+.map{padding-block:130px 60px}
+.map .head{display:grid; gap:18px; max-width:720px}
+.tree{margin-top:54px; width:100%; height:auto; overflow:visible}
+.tree path{fill:none; stroke:var(--brass); stroke-width:1.4; stroke-dasharray:1; stroke-dashoffset:1; transition:stroke-dashoffset 1.4s cubic-bezier(.6,0,.3,1)}
+.tree.on path{stroke-dashoffset:0}
+.tree .node rect{fill:var(--paper2); stroke:var(--ink); stroke-width:1}
+.tree .node text{font:600 17px var(--serif); font-variant:small-caps; letter-spacing:.06em; fill:var(--ink); text-anchor:middle}
+.tree .node text.s{font:italic 500 13px var(--serif); font-variant:normal; letter-spacing:0; fill:var(--mute)}
+.tree .node{opacity:0; transform:translateY(10px); transition:opacity .6s, transform .6s; transform-box:fill-box}
+.tree.on .node{opacity:1; transform:none}
+.tree-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch}
+.tree-wrap svg{min-width:720px}
+
+/* moves */
+.moves{padding-block:110px}
+.moves .head{max-width:760px; display:grid; gap:18px; margin-bottom:60px}
+.move{display:grid; grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr); gap:48px; align-items:center; padding-block:46px; border-top:1px solid var(--line)}
+.move:nth-child(even){grid-template-columns:minmax(0,.7fr) minmax(0,1.3fr)}
+.move:nth-child(even) figure{order:2}
+.move figure{margin:0; border-radius:12px; overflow:hidden; background:var(--paper2); box-shadow:0 30px 60px -38px rgba(60,45,20,.55), 0 0 0 1px var(--line)}
+.move figure img{width:100%; transform:scale(1.04); transition:transform 1.4s cubic-bezier(.2,.8,.2,1)}
+.move.in figure img{transform:none}
+.move i{font:italic 500 1.4rem/1 var(--serif); color:var(--brass)}
+.move h3{font-size:clamp(1.7rem,2.8vw,2.3rem); font-variant:small-caps; letter-spacing:.02em; line-height:1.1; margin:10px 0 14px}
+.move p{color:var(--mute)}
+.chips{display:flex; flex-wrap:wrap; gap:8px; margin-top:18px}
+.chips span{font-size:.74rem; letter-spacing:.08em; text-transform:uppercase; padding:6px 12px; border:1px solid var(--line); border-radius:999px; color:var(--olive); background:var(--paper2)}
+
+/* template x3 */
+.tri{height:360vh}
+.tri .wrap{width:100%; display:grid; gap:26px}
+.tri .head{display:flex; justify-content:space-between; align-items:flex-end; gap:30px; flex-wrap:wrap}
+.tri .head p{max-width:46ch; color:var(--mute)}
+.cols{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:20px}
+.col{display:grid; gap:10px; min-width:0}
+.col .frame{position:relative; height:min(58vh, 560px); border-radius:12px; overflow:hidden; background:var(--paper2); box-shadow:0 30px 60px -36px rgba(60,45,20,.55), 0 0 0 1px var(--line)}
+.col .frame img{position:absolute; left:0; top:0; width:100%; will-change:transform}
+.col b{font:600 1.15rem/1.2 var(--serif); font-variant:small-caps; letter-spacing:.04em}
+.col small{display:block; font-size:.78rem; color:var(--mute); letter-spacing:.12em; text-transform:uppercase}
+.tri .legend{display:flex; flex-wrap:wrap; gap:8px 20px; font-size:.82rem; color:var(--mute)}
+.tri .legend span{transition:color .3s}
+.tri .legend span.on{color:var(--ink)}
+.tri .legend span::before{content:"— "; color:var(--brass)}
+
+/* explorer */
+.explore{padding-block:130px 90px}
+.explore .head{display:grid; gap:18px; max-width:720px; margin-bottom:34px}
+.tabs{display:flex; flex-wrap:wrap; gap:8px; margin-bottom:18px}
+.tabs button{font:500 .8rem/1 var(--sans); letter-spacing:.12em; text-transform:uppercase; padding:12px 16px; border:1px solid var(--line); background:var(--paper2); color:var(--olive); cursor:pointer; border-radius:999px; transition:background .25s, color .25s, border-color .25s}
+.tabs button[aria-selected="true"]{background:var(--ink); color:var(--paper2); border-color:var(--ink)}
+.tabs button:focus-visible{outline:2px solid var(--brass); outline-offset:2px}
+.xview{height:min(78vh, 820px); overflow-y:auto; overscroll-behavior:contain; border-radius:0 0 14px 14px}
+.xview img{width:100%}
+.xview img.swap{animation:fadein .5s ease}
+@keyframes fadein{from{opacity:0; transform:translateY(10px)}}
+.hint{margin-top:12px; font-size:.82rem; color:var(--mute); font-style:italic}
+
+/* system */
+.system{padding-block:110px}
+.system .wrap{display:grid; grid-template-columns:minmax(0,1fr) minmax(0,1fr); gap:60px}
+.sw{display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:14px; margin-top:28px}
+.sw div{border-radius:10px; overflow:hidden; box-shadow:0 0 0 1px var(--line); background:var(--paper2)}
+.sw div i{display:block; height:84px}
+.sw div span{display:block; padding:9px 12px; font-size:.78rem; color:var(--mute)}
+.sw div span b{display:block; color:var(--ink); font-weight:500}
+.type{margin-top:28px; display:grid; gap:18px}
+.type div{padding:18px 0; border-top:1px solid var(--line)}
+.type .a{font:600 2.4rem/1 var(--serif); font-variant:small-caps; letter-spacing:.04em}
+.type .b{font:italic 500 1.5rem/1.2 var(--serif); color:var(--olive)}
+.type .c{font:2.6rem/1 var(--script); color:var(--green)}
+.type small{display:block; margin-top:6px; font-size:.78rem; color:var(--mute); letter-spacing:.1em; text-transform:uppercase}
+
+/* end */
+.end{padding-block:120px calc(90px + env(safe-area-inset-bottom,0px)); text-align:center; border-top:1px solid var(--line)}
+.end .s{font:clamp(3.4rem,8vw,6rem)/1 var(--script); color:var(--green)}
+.end p{margin:18px auto 0; max-width:56ch; color:var(--mute)}
+.end .fine{font-size:.82rem; font-style:italic; margin-top:28px}
+.end .row{display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:34px}
+
+.rv{opacity:0; transform:translateY(26px); transition:opacity .9s ease, transform 1s cubic-bezier(.2,.8,.2,1)}
+.rv.in{opacity:1; transform:none}
+
+@media (max-width: 900px){
+  body{font-size:16px}
+  .hero{padding-block:110px 60px; min-height:auto}
+  .hero .wrap,.brief .wrap,.system .wrap{grid-template-columns:minmax(0,1fr); gap:36px}
+  .facts .wrap{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .fact:nth-child(3){border-left:0}
+  .fact:nth-child(n+3){border-top:1px solid var(--line)}
+  .pin .wrap{grid-template-columns:minmax(0,1fr); gap:16px; align-content:center}
+  .caps h2{display:none}
+  .caps li{display:none; padding:0}
+  .caps li.on{display:grid}
+  .caps li.on p{max-height:none}
+  .browser{height:62svh}
+  .move,.move:nth-child(even){grid-template-columns:minmax(0,1fr); gap:24px}
+  .move:nth-child(even) figure{order:0}
+  .cols{gap:8px}
+  .col .frame{height:52svh}
+  .col b{font-size:.92rem}
+  .col small{font-size:.6rem; letter-spacing:.06em}
+  .tri .head p{font-size:.92rem}
+}
+@media (prefers-reduced-motion: reduce){
+  .pin,.tri{height:auto}
+  .stick{position:relative; height:auto; padding-block:90px}
+  .in-up,.rv{opacity:1; transform:none; animation:none; transition:none}
+  .hills path{animation:none; stroke-dashoffset:0}
+  .brief h2 .w{opacity:1}
+  .caps li{opacity:1} .caps li p{max-height:none}
+}
+</style>
+</head>
+<body>
+
+<header class="nav"><div class="wrap">
+  <a class="mark" href="#top" aria-label="Serendipity, top of page">Serendipity</a>
+  <a class="back" href="https://claude.ai/artifact/6uFJiGQndrhcXUYr6CdVBa">← Portfolio</a>
+</div></header>
+
+<main id="top">
+<section class="hero">
+  <svg class="hills" viewBox="0 0 1440 120" preserveAspectRatio="none" aria-hidden="true">
+    <path pathLength="1" d="M0 96 C120 60 200 70 290 44 C380 18 440 40 520 58 C600 76 680 30 780 22 C880 14 930 52 1010 62 C1100 74 1180 34 1270 40 C1350 46 1400 70 1440 64"/>
+    <path pathLength="1" d="M0 112 C140 90 260 98 360 82 C470 64 560 90 660 92 C760 94 860 70 960 76 C1080 84 1180 104 1300 94 C1370 88 1410 96 1440 100"/>
+  </svg>
+  <div class="wrap">
+    <div>
+      <p class="eyebrow in-up" style="--d:.1s">Website design · The Nilgiris</p>
+      <h1 class="in-up" style="--d:.25s">Three bungalows, one hillside website<em>stay surprised.</em></h1>
+      <p class="lede in-up" style="--d:.45s">Serendipity hosts guests in three British colonial bungalows across Ooty, Devala and Coonoor. I designed the website that introduces the houses, sells the experiences around them and gets people to check availability.</p>
+      <div class="meta in-up" style="--d:.6s"><span><b>Project</b>Website design</span><span><b>Scope</b>6 desktop pages</span><span><b>Tool</b>Figma</span></div>
+    </div>
+    <figure class="cover in-up" style="--d:.35s; margin:0"><img src="cover.webp" alt="Serendipity home page shown on a tablet, over a pencil sketch of a colonial bungalow" fetchpriority="high"></figure>
+  </div>
+</section>
+
+<section class="facts" aria-label="Project in numbers">
+  <div class="wrap">
+    <div class="fact"><b data-n="6">0</b><span>Pages designed</span></div>
+    <div class="fact"><b data-n="3">0</b><span>Heritage properties</span></div>
+    <div class="fact"><b data-n="4">0</b><span>Experiences sold</span></div>
+    <div class="fact"><b data-n="1">0</b><span>Shared property template</span></div>
+  </div>
+</section>
+
+<section class="brief">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rv">The brief</p>
+      <h2 id="briefH" style="margin-top:16px">Make a hill-station weekend feel one click away.</h2>
+    </div>
+    <div>
+      <ul class="jobs">
+        <li class="rv"><i>01</i><div><b>Introduce three houses at once</b><p>Lymond House in Ooty, Amberina in Devala and 180 McIver in Coonoor each need their own identity without splitting the brand.</p></div></li>
+        <li class="rv"><i>02</i><div><b>Put booking in reach from the first screen</b><p>Property, dates, guests and rooms sit in one bar directly under the hero.</p></div></li>
+        <li class="rv"><i>03</i><div><b>Sell more than a room</b><p>Film shoots, weddings and celebrations, corporate retreats, and nature walks with tea-estate tours.</p></div></li>
+        <li class="rv"><i>04</i><div><b>Answer the questions before they are asked</b><p>Accommodation types, families, events and how to get there, next to a hand-drawn map of the hills.</p></div></li>
+      </ul>
+      <p class="note rv">This reading of the brief comes from the structure of the design files.</p>
+    </div>
+  </div>
+</section>
+
+<section class="pin" id="pinHome" aria-label="Home page walkthrough">
+  <div class="stick">
+    <div class="wrap">
+      <div class="caps">
+        <p class="eyebrow">Home page</p>
+        <h2 style="margin-top:14px">Scroll the home page</h2>
+        <ol id="caps">
+          <li data-a="0"><i>i.</i><div><b>Stay amidst nature</b><p>An arch-framed aerial photo and a pencil sketch of a bungalow set the heritage tone in the first second.</p></div></li>
+          <li data-a=".11"><i>ii.</i><div><b>Check availability</b><p>Property, check-in, check-out, adults, under-12s and rooms in one brass bar.</p></div></li>
+          <li data-a=".17"><i>iii.</i><div><b>Three houses, numbered</b><p>01 Ooty, 02 Devala, 03 Coonoor, each with its own wordmark and one-line pitch.</p></div></li>
+          <li data-a=".27"><i>iv.</i><div><b>The rich history</b><p>A 1980 photo stamp and a short story lead to the About page.</p></div></li>
+          <li data-a=".37"><i>v.</i><div><b>Things to do</b><p>Shoots, events, packages and activities as four cards over a watercolour of the estate.</p></div></li>
+          <li data-a=".54"><i>vi.</i><div><b>Book your stay</b><p>A six-photo gallery and four promises: colonial charm, personalized stays, scenic beauty, prime locations.</p></div></li>
+          <li data-a=".72"><i>vii.</i><div><b>Guests and questions</b><p>A testimonial carousel, then an FAQ accordion beside a map of the Nilgiris.</p></div></li>
+        </ol>
+      </div>
+      <div class="browser">
+        <div class="bar"><i></i><i></i><i></i><span>serendipity · home</span></div>
+        <div class="view" id="homeView"><img id="homeImg" src="home.webp" alt="Full Serendipity home page design"></div>
+        <div class="prog"><i id="homeProg"></i></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="map" aria-label="Site map">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow rv">Structure</p><h2 class="rv">Six pages, two jobs</h2><p class="lede rv">The home and properties pages sell the idea of a stay. The three property pages and About Us close the deal with detail.</p></div>
+    <div class="tree-wrap rv">
+      <svg class="tree" id="tree" viewBox="0 0 1000 330" role="img" aria-label="Site map: Home links to Properties and About Us. Properties links to Lymond House, Amberina and 180 McIver.">
+        <path pathLength="1" d="M500 64 V110 H220 V150"/><path pathLength="1" d="M500 110 H780 V150"/>
+        <path pathLength="1" d="M220 206 V240 H80 V270"/><path pathLength="1" d="M220 240 V270"/><path pathLength="1" d="M220 240 H360 V270"/>
+        <g class="node" style="transition-delay:.1s"><rect x="420" y="12" width="160" height="52" rx="26"/><text x="500" y="44">Home</text></g>
+        <g class="node" style="transition-delay:.5s"><rect x="135" y="150" width="170" height="56" rx="6"/><text x="220" y="176">Properties</text><text class="s" x="220" y="195">all three houses</text></g>
+        <g class="node" style="transition-delay:.6s"><rect x="695" y="150" width="170" height="56" rx="6"/><text x="780" y="176">About Us</text><text class="s" x="780" y="195">heritage &amp; people</text></g>
+        <g class="node" style="transition-delay:.9s"><rect x="12" y="270" width="136" height="56" rx="6"/><text x="80" y="296">Lymond House</text><text class="s" x="80" y="315">Ooty</text></g>
+        <g class="node" style="transition-delay:1s"><rect x="160" y="270" width="120" height="56" rx="6"/><text x="220" y="296">Amberina</text><text class="s" x="220" y="315">Devala</text></g>
+        <g class="node" style="transition-delay:1.1s"><rect x="295" y="270" width="130" height="56" rx="6"/><text x="360" y="296">180 McIver</text><text class="s" x="360" y="315">Coonoor</text></g>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section class="moves" aria-label="Design moves">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow rv">Design moves</p><h2 class="rv">Heritage on paper, booking in brass</h2><p class="lede rv">Cream paper texture, pencil sketches of the bungalows behind the content and serif small caps carry the colonial feel. Brass is reserved for the things you can act on.</p></div>
+    <div class="move rv"><figure><img src="d-book.webp" alt="Check availability bar with property, dates, guests and rooms" loading="lazy"></figure><div><i>01</i><h3>Booking before scrolling</h3><p>The availability bar carries every field a stay needs: property, check-in, check-out, guests over 12, guests under 12 and rooms. It ends in one brass "Check availability" button.</p><div class="chips"><span>6 fields</span><span>One row</span><span>Above the fold</span></div></div></div>
+    <div class="move rv"><figure><img src="d-props.webp" alt="Three property cards numbered 01 Ooty, 02 Devala, 03 Coonoor" loading="lazy"></figure><div><i>02</i><h3>Three houses, one family</h3><p>Each property gets its own wordmark and photo, but the same numbered card: place in small caps, house name in italic, then a one-line pitch.</p><div class="chips"><span>Lymond House</span><span>Amberina</span><span>180 McIver</span></div></div></div>
+    <div class="move rv"><figure><img src="d-do.webp" alt="Four cards: Shoots, Events, Packages, Activities" loading="lazy"></figure><div><i>03</i><h3>Reasons to come back</h3><p>The houses also host film shoots, weddings and celebrations, and corporate retreats, and offer nature walks and tea-estate tours. Four quiet cards give each audience its own way in.</p><div class="chips"><span>Shoots</span><span>Events</span><span>Packages</span><span>Activities</span></div></div></div>
+    <div class="move rv"><figure><img src="d-gallery.webp" alt="Book your stay gallery with six photos and four feature icons" loading="lazy"></figure><div><i>04</i><h3>Show the rooms, then the promise</h3><p>A six-photo grid of grounds and interiors sits above four short promises with line icons, followed by a single "Book now" button.</p><div class="chips"><span>Colonial charm</span><span>Personalized</span><span>Scenic beauty</span><span>Prime locations</span></div></div></div>
+    <div class="move rv"><figure><img src="d-faq.webp" alt="FAQ accordion next to a hand-drawn map with a compass" loading="lazy"></figure><div><i>05</i><h3>Questions beside the map</h3><p>Four common questions open in an accordion, next to a hand-drawn map of the hills with pins for each house.</p><div class="chips"><span>4 questions</span><span>Accordion</span><span>Illustrated map</span></div></div></div>
+  </div>
+</section>
+
+<section class="tri" id="pinTri" aria-label="One template, three properties">
+  <div class="stick">
+    <div class="wrap">
+      <div class="head">
+        <div><p class="eyebrow">Property pages</p><h2 style="margin-top:14px">One template, three houses</h2></div>
+        <p>Every property page follows the same order. Only the photos, names and local sights change, so a fourth house would need new content, not a new layout.</p>
+      </div>
+      <div class="cols">
+        <div class="col"><div class="frame"><img class="tri-img" src="lymond.webp" alt="Lymond House property page" loading="lazy"></div><div><b>Lymond House</b><small>Ooty</small></div></div>
+        <div class="col"><div class="frame"><img class="tri-img" src="amberina.webp" alt="Amberina property page" loading="lazy"></div><div><b>Amberina</b><small>Devala</small></div></div>
+        <div class="col"><div class="frame"><img class="tri-img" src="mciver.webp" alt="180 McIver property page" loading="lazy"></div><div><b>180 McIver</b><small>Coonoor</small></div></div>
+      </div>
+      <div class="legend" id="legend"><span data-a="0">Hero &amp; booking</span><span data-a=".2">Accommodations</span><span data-a=".42">The history</span><span data-a=".58">A visual journey</span><span data-a=".76">Explore nearby</span></div>
+    </div>
+  </div>
+</section>
+
+<section class="explore" aria-label="Explore every page">
+  <div class="wrap">
+    <div class="head"><p class="eyebrow rv">Every page</p><h2 class="rv">Walk the full site</h2><p class="lede rv">Pick a page, then scroll inside the window to read it top to bottom.</p></div>
+    <div class="tabs rv" role="tablist" aria-label="Pages">
+      <button role="tab" aria-selected="true" data-src="home.webp">Home</button>
+      <button role="tab" aria-selected="false" data-src="properties.webp">Properties</button>
+      <button role="tab" aria-selected="false" data-src="lymond.webp">Lymond House</button>
+      <button role="tab" aria-selected="false" data-src="amberina.webp">Amberina</button>
+      <button role="tab" aria-selected="false" data-src="mciver.webp">180 McIver</button>
+      <button role="tab" aria-selected="false" data-src="about.webp">About Us</button>
+    </div>
+    <div class="browser rv" style="height:auto">
+      <div class="bar"><i></i><i></i><i></i><span id="xUrl">serendipity · home</span></div>
+      <div class="xview" id="xview" tabindex="0" aria-label="Page preview, scrollable"><img id="xImg" src="home.webp" alt="Home page design" loading="lazy"></div>
+    </div>
+    <p class="hint">Desktop designs at 1920 px wide, scaled down to fit.</p>
+  </div>
+</section>
+
+<section class="system" aria-label="Visual language">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow rv">Visual language</p>
+      <h2 class="rv" style="margin-top:14px">Colours sampled from the pages</h2>
+      <div class="sw rv">
+        <div><i style="background:#fef9ed"></i><span><b>Paper</b>#FEF9ED</span></div>
+        <div><i style="background:#f5ebdb"></i><span><b>Parchment</b>#F5EBDB</span></div>
+        <div><i style="background:#cbbfa6"></i><span><b>Linen</b>#CBBFA6</span></div>
+        <div><i style="background:#d1b991"></i><span><b>Sand</b>#D1B991</span></div>
+        <div><i style="background:#9e845c"></i><span><b>Brass</b>#9E845C</span></div>
+        <div><i style="background:#665b3d"></i><span><b>Olive ink</b>#665B3D</span></div>
+      </div>
+    </div>
+    <div>
+      <p class="eyebrow rv">Type roles</p>
+      <div class="type">
+        <div class="rv"><span class="a">Stay Amidst Nature</span><small>Serif small caps · headings</small></div>
+        <div class="rv"><span class="b">Lymond House, Ooty</span><small>Serif italic · names and captions</small></div>
+        <div class="rv"><span class="c">Serendipity</span><small>Script · the wordmark only</small></div>
+      </div>
+      <p class="note rv">Typefaces on this page are web stand-ins chosen to match the roles in the design.</p>
+    </div>
+  </div>
+</section>
+
+<section class="end">
+  <div class="wrap">
+    <p class="s rv">Thank you</p>
+    <p class="rv">Serendipity website design by Govind Patel. Six desktop pages designed in Figma.</p>
+    <div class="row rv"><a class="back" href="https://claude.ai/artifact/6uFJiGQndrhcXUYr6CdVBa">← Back to portfolio</a></div>
+    <p class="fine rv">Photographs in the design are placeholder images sourced from the web and are not my own.</p>
+  </div>
+</section>
+</main>
+
+<script>
+(() => {
+  const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const $ = s => document.querySelector(s), $$ = s => [...document.querySelectorAll(s)];
+  const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
+
+  // reveal on scroll
+  const io = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: .15 });
+  $$('.rv').forEach(el => io.observe(el));
+
+  // counters
+  const cio = new IntersectionObserver(es => es.forEach(e => { if (!e.isIntersecting) return; cio.unobserve(e.target);
+    const n = +e.target.dataset.n; if (RM) { e.target.textContent = n; return; } const t0 = performance.now();
+    const step = t => { const k = clamp((t - t0) / 900); e.target.textContent = Math.round(n * (1 - Math.pow(1 - k, 3))); if (k < 1) requestAnimationFrame(step); }; requestAnimationFrame(step); }), { threshold: .6 });
+  $$('[data-n]').forEach(el => cio.observe(el));
+
+  // site map draw
+  const tio = new IntersectionObserver(es => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('on'); tio.disconnect(); } }), { threshold: .35 });
+  tio.observe($('#tree'));
+
+  // brief headline word reveal
+  const bh = $('#briefH'); bh.innerHTML = bh.textContent.split(' ').map(w => `<span class="w">${w}</span>`).join(' ');
+  const words = $$('#briefH .w');
+
+  // tabs
+  const tabs = $$('.tabs button'), xImg = $('#xImg'), xv = $('#xview');
+  tabs.forEach(b => b.addEventListener('click', () => { tabs.forEach(t => t.setAttribute('aria-selected', t === b)); xImg.classList.remove('swap'); void xImg.offsetWidth;
+    xImg.src = b.dataset.src; xImg.alt = b.textContent + ' page design'; xImg.classList.add('swap'); $('#xUrl').textContent = 'serendipity · ' + b.textContent.toLowerCase(); xv.scrollTop = 0; }));
+
+  if (RM) { words.forEach(w => w.classList.add('on')); $$('#caps li').forEach(l => l.classList.add('on')); return; }
+
+  const hero = $('.cover'), pinH = $('#pinHome'), homeImg = $('#homeImg'), view = $('#homeView'), prog = $('#homeProg'), caps = $$('#caps li');
+  const pinT = $('#pinTri'), triImgs = $$('.tri-img'), legend = $$('#legend span');
+  const sp = el => { const r = el.getBoundingClientRect(); return clamp(-r.top / (r.height - innerHeight)); };
+  let cur = 0, curT = 0;
+  const tick = () => {
+    const vh = innerHeight;
+    // hero
+    const hr = hero.getBoundingClientRect(); hero.style.setProperty('--hp', clamp(1 - (hr.bottom) / (vh + hr.height)).toFixed(3));
+    // brief words
+    const br = bh.getBoundingClientRect(), bp = clamp((vh * .85 - br.top) / (vh * .55)); const on = Math.round(bp * words.length);
+    words.forEach((w, i) => w.classList.toggle('on', i < on));
+    // home pin
+    const p = sp(pinH); cur += (p - cur) * .14;
+    const max = homeImg.offsetHeight - view.offsetHeight; homeImg.style.transform = `translate3d(0,${(-cur * Math.max(0, max)).toFixed(1)}px,0)`;
+    prog.style.height = (cur * 100).toFixed(2) + '%';
+    let ai = 0; caps.forEach((c, i) => { if (cur >= +c.dataset.a - .001) ai = i; }); caps.forEach((c, i) => c.classList.toggle('on', i === ai));
+    // template trio
+    const q = sp(pinT); curT += (q - curT) * .14;
+    triImgs.forEach(im => { const f = im.parentElement; const m = im.offsetHeight - f.offsetHeight; im.style.transform = `translate3d(0,${(-curT * Math.max(0, m)).toFixed(1)}px,0)`; });
+    let li = 0; legend.forEach((l, i) => { if (curT >= +l.dataset.a - .001) li = i; }); legend.forEach((l, i) => l.classList.toggle('on', i === li));
+    requestAnimationFrame(tick);
+  };
+  requestAnimationFrame(tick);
+})();
+</script>
+</body>
+</html>
